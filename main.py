@@ -107,6 +107,27 @@ def _ex3(value: int)-> int:
         return reverse_number(number=value)
 
 
+def _init_ex_5():
+    value = int(input_number(text="Введите число N: ", min=MIN_VALUE, max=MAX_VALUE))
+    _ex5(value=value)
+
+def _ex5(value: int)-> int:
+    def is_power_of_five(n):
+        if n <= 0:
+            return False
+        
+        while n % 5 == 0:
+            n //= 5
+        
+        return n == 1
+
+    if is_power_of_five(n=value):
+        print(get_text_color(f'Число {value} является степенью числа 5', COLOR_GREEN))
+    else:
+        print(get_text_color(f'Число {value} НЕ является степенью числа 5', COLOR_FAIL))
+
+
+
 def main():
     while True:
         print(
