@@ -80,18 +80,21 @@ def _init_ex_3():
     print(f"\n Результат выполнения функции: {get_text_color(_ex3(value=value), COLOR_GREEN)}")
 
 def _ex3(value: int)-> int:
-    def is_digits_unique(number):
+    def is_digits_unique(number: int) -> bool:
         str_number = str(number)
         return len(set(str_number)) == len(str_number)
 
-    def is_digits_identical(number):
+    def is_digits_identical(number: int) -> bool:
         return len(set(str(number))) == 1
 
-    def modify_number(number):
+    def modify_number(number: int) -> int:
         str_number = str(number)
         first_digit = str(int(str_number[0]) - 1)
         last_digit = str(int(str_number[-1]) + 1) if str_number[-1] != '9' else str_number[-1]
         return int(first_digit + str_number[1:-1] + last_digit)
+
+    def reverse_number(number: int) -> int:
+        return int(str(number)[::-1])
 
     if is_digits_unique(number=value):
         print(get_text_color(f'Все цифры в числе уникальны. Оставляем число без изменений', COLOR_GREEN))
@@ -99,8 +102,9 @@ def _ex3(value: int)-> int:
     elif is_digits_identical(number=value):
         print(get_text_color(f'Все цифры в числе одинаковы. первую уменьшаем на 1 и последнюю если это не 9 увеличиваем на 1', COLOR_GREEN))
         return modify_number(number=value)
-
-
+    else:
+        print(get_text_color(f'Две цифры в числе одинаковы. Получаем число с обратным порядком чисел', COLOR_GREEN))
+        return reverse_number(number=value)
 
 
 def main():
@@ -109,12 +113,12 @@ def main():
             "\nЛарионов гр. 410з. Программирование на языках высокого уровня\n"
             "Индивидуальное задание №1. Базовый синтаксис Python. Вариант 13.\n"
             "Какую задачу выполнить: \n"
-            f'''{get_text_color(f'{_EX_1}) ', COLOR_WARNING)}необходимо найти значение функции в зависимости от введенных параметров.\n'''
-            f'''{get_text_color(f'{_EX_2}) ', COLOR_WARNING)}необходимо найти значение функции в зависимости от
-            введенных параметров. Необходимо проверить, принадлежит ли введенный
-            аргумент области определения функции, вывести сообщение, если не
-            принадлежит, а также предложить повторный ввод параметров. Используйте
-            модуль math или cmath.\n'''
+            # f'''{get_text_color(f'{_EX_1}) ', COLOR_WARNING)}необходимо найти значение функции в зависимости от введенных параметров.\n'''
+            # f'''{get_text_color(f'{_EX_2}) ', COLOR_WARNING)}необходимо найти значение функции в зависимости от
+            # введенных параметров. Необходимо проверить, принадлежит ли введенный
+            # аргумент области определения функции, вывести сообщение, если не
+            # принадлежит, а также предложить повторный ввод параметров. Используйте
+            # модуль math или cmath.\n'''
             f"{get_text_color(f'{_EX_3}) ', COLOR_WARNING)}используйте вложенный условный оператор\n"
             f"{get_text_color(f'{_EX_4}) ', COLOR_WARNING)}Вычислить значение s\n"
             f"{get_text_color(f'{_EX_5}) ', COLOR_WARNING)}Определить, лежит ли точка с координатами (x,y) внутри квадрата\n"
