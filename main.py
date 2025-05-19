@@ -75,6 +75,33 @@ def _ex1(t: float, s: float)-> float:
 
 
 
+def _init_ex_3():
+    value = int(input_number(text="Введите натуральное трехзначное число: ", min=100, max=999))
+    print(f"\n Результат выполнения функции: {get_text_color(_ex3(value=value), COLOR_GREEN)}")
+
+def _ex3(value: int)-> int:
+    def is_digits_unique(number):
+        str_number = str(number)
+        return len(set(str_number)) == len(str_number)
+
+    def is_digits_identical(number):
+        return len(set(str(number))) == 1
+
+    def modify_number(number):
+        str_number = str(number)
+        first_digit = str(int(str_number[0]) - 1)
+        last_digit = str(int(str_number[-1]) + 1) if str_number[-1] != '9' else str_number[-1]
+        return int(first_digit + str_number[1:-1] + last_digit)
+
+    if is_digits_unique(number=value):
+        print(get_text_color(f'Все цифры в числе уникальны. Оставляем число без изменений', COLOR_GREEN))
+        return value
+    elif is_digits_identical(number=value):
+        print(get_text_color(f'Все цифры в числе одинаковы. первую уменьшаем на 1 и последнюю если это не 9 увеличиваем на 1', COLOR_GREEN))
+        return modify_number(number=value)
+
+
+
 
 def main():
     while True:
