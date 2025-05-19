@@ -59,15 +59,18 @@ def _init_ex_1():
 def _ex1(t: float, s: float)-> float:
     if t >= s and 2 < s <= 4:
         print('t >= s and 2 < s <= 4')
-        print(get_text_color(f'{t} >= {s} and 2 < {s} <= 4', COLOR_GREEN))
-        return math.sqrt(t-s, 4)
+        print(get_text_color(f'{t} >= {s} and 2 < {s} <= 4', COLOR_WARNING))
+        print(get_text_color(f'({t}-{s}) * (1/4)', COLOR_GREEN))
+        return (t-s)**(1/4)
 
     if t < 0:
         print('t < 0')
-        print(f'{t} < 0')
+        print(get_text_color(f'{t} < 0', COLOR_WARNING))
+        print(get_text_color(f'{s}**4 + 2*{t}', COLOR_GREEN))
         return s**4 + 2*t
     
     print('Вариант \'иначе\'')
+    print(get_text_color(f'{t} + 2', COLOR_GREEN))
     return t + 2
 
 
