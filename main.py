@@ -146,6 +146,9 @@ def _ex8(x: float, epsilon: float) -> tuple:
     return sum_total, n
 
 def _init_ex_9():
+    print('Дано положительное число k.')
+    print(f'Для каждого значения {get_text_color("x = 2,3,4,...,8", COLOR_WARNING)} найти такое наименьшее целое n,')
+    print(f'При котором {get_text_color("x^n", COLOR_WARNING)}. Превышает заданное k\n')
     k = input_number(text="Введите положительное число k: ", min=0.0001)
     results = _ex9(k)
     print("\nРезультаты:")
