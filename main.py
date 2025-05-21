@@ -93,14 +93,15 @@ def _ex6(start: datetime, end: datetime, route_duration: int, rest_time: int) ->
     return schedule
 
 def _init_ex_7():
+    print('Вычислить значение суммы бесконечного ряда')
     print(get_text_color('f(x) = 1 + (x^2)/2! + (x^4)/4! + ... + (x^(2*n))/(2n)! + ...', COLOR_WARNING))
     print(f'с заданой точностью {get_text_color("E = 10^-6", COLOR_WARNING)} и значение функции для проверки')
-    print(f'{get_text_color("chx = (e^x + e^(-x))/2", COLOR_WARNING)}, учесть, что {get_text_color("0,1<=x<=1", COLOR_WARNING)}')
+    print(f'{get_text_color("chx = (e^x + e^(-x))/2", COLOR_WARNING)}, учесть, что {get_text_color("0,1<=x<=1", COLOR_WARNING)}\n')
     x = input_number(text="Введите x (0.1 ≤ x ≤ 1): ", min=0.1, max=1)
     epsilon = 1e-6
     result, terms = _ex7(x, epsilon)
     check = math.cosh(x)
-    print(f"\nРезультат вычисления ряда: {get_text_color(result, COLOR_GREEN)}")
+    print(f"\nРезультат вычисления ряда:   {get_text_color(result, COLOR_GREEN)}")
     print(f"Проверочное значение (ch x): {get_text_color(check, COLOR_OKCYAN)}")
     print(f"Количество учтенных членов ряда: {terms}")
     print(f"Разница между результатом и проверочным значением: {abs(result - check)}")
@@ -118,7 +119,6 @@ def _ex7(x: float, epsilon: float) -> tuple:
     return sum_total, n
 
 def _init_ex_8():
-    print('Вычислить значение суммы бесконечного ряда')
     x = input_number(text="Введите x (|x| < 1): ", min=-1+1e-9, max=1-1e-9)
     epsilon = 1e-5
     result, terms = _ex8(x, epsilon)
