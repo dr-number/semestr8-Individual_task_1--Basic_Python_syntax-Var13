@@ -117,18 +117,21 @@ def _init_ex_5():
     value = int(input_number(text="Введите число N: ", min=MIN_VALUE, max=MAX_VALUE))
     _ex5(value=value)
 
-def _ex5(value: int)-> int:
+def _ex5(value: int):
     def is_power_of_five(n):
         if n <= 0:
-            return False
+            return False, 0
         
+        power = 0
         while n % 5 == 0:
+            power += 1
             n //= 5
         
-        return n == 1
+        return n == 1, power
 
-    if is_power_of_five(n=value):
-        print(get_text_color(f'Число {value} является степенью числа 5', COLOR_GREEN))
+    is_power, power = is_power_of_five(n=value)
+    if is_power:
+        print(get_text_color(f'Число {value} является {power} степенью числа 5', COLOR_GREEN))
     else:
         print(get_text_color(f'Число {value} НЕ является степенью числа 5', COLOR_FAIL))
 
@@ -152,7 +155,7 @@ def main():
             последнюю, если это не 9, уве личить на 1; если две цифры в числеодинаковы, получить число с обратным 
             порядком цифр.\n'''
             # f"{get_text_color(f'{_EX_4}) ', COLOR_WARNING)}Вычислить значение s\n"
-            # f"{get_text_color(f'{_EX_5}) ', COLOR_WARNING)}Определить, лежит ли точка с координатами (x,y) внутри квадрата\n"
+            f'''{get_text_color(f'{_EX_5}) ', COLOR_WARNING)}Дано натуральное число N. Выяснить, является ли оно степенью числа 5\n'''
             # f"{get_text_color(f'{_EX_6}) ', COLOR_WARNING)}По заданному графику функции вычислить ее значение\n"
         )
         select = input('Для выхода введите \'0\'\n')
