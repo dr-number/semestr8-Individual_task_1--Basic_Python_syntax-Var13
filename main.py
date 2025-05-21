@@ -115,6 +115,10 @@ def _ex7(x: float, epsilon: float) -> tuple:
     return sum_total, n
 
 def _init_ex_8():
+    print('Вычислить значение суммы бесконечного ряда')
+    print(get_text_color('f(x) = 1 + (x^2)/2! + (x^4)/4! + ... + (x^(2*n))/(2n)! + ...', COLOR_WARNING))
+    print(f'с заданой точностью {get_text_color("E = 10^-6", COLOR_WARNING)} и значение функции для проверки')
+    print(f'{get_text_color("chx = (e^x + e^(-x))/2", COLOR_WARNING)}, учесть, что {get_text_color("0,1<=x<=1", COLOR_WARNING)}')
     x = input_number(text="Введите x (|x| < 1): ", min=-1+1e-9, max=1-1e-9)
     epsilon = 1e-5
     result, terms = _ex8(x, epsilon)
@@ -252,8 +256,8 @@ def main():
             # f"{get_text_color(f'{_EX_4}) ', COLOR_WARNING)}Вычислить значение s\n"
             f'''{get_text_color(f'{_EX_5}) ', COLOR_WARNING)}Дано натуральное число N. Выяснить, является ли оно степенью числа 5\n'''
             f'''{get_text_color(f'{_EX_6}) ', COLOR_WARNING)}Составить суточное расписание автобусного маршрута\n'''
-            f'''{get_text_color(f'{_EX_7}) ', COLOR_WARNING)}Вычислить сумму ряда для гиперболического косинуса\n'''
-            f'''{get_text_color(f'{_EX_8}) ', COLOR_WARNING)}Вычислить сумму ряда для арктангенса\n'''
+            f'''{get_text_color(f'{_EX_7}) ', COLOR_WARNING)}Вычислить сумму ряда (1)\n'''
+            f'''{get_text_color(f'{_EX_8}) ', COLOR_WARNING)}Вычислить сумму ряда (2)\n'''
             f'''{get_text_color(f'{_EX_9}) ', COLOR_WARNING)}Найти минимальные степени для чисел 2-8\n'''
         )
         select = input('Для выхода введите \'0\'\n')
