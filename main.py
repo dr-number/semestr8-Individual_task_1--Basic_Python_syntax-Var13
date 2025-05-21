@@ -244,6 +244,71 @@ def _ex5(value: int):
     else:
         print(get_text_color(f'Число {value} НЕ является степенью числа 5', COLOR_FAIL))
 
+def _init_ex_2():
+    print('Вычисление значения функции S')
+    print(get_text_color('S = sqrt(1/((lg(cot(x)))^2 - (3x)^(1/4)/cos(x) + sqrt(1/(2x) + 1)) * e^(-3x) + e^(arctg(x))', COLOR_WARNING))
+    print('Необходимо проверить принадлежность x области определения функции\n')
+    
+    while True:
+        x = input_number(text="Введите x (в радианах, x > 0, x ≠ πn): ", min=0.0001)
+        
+        # Check if cot(x) is positive (since log of negative is undefined)
+        if math.sin(x) == 0:
+            print(get_text_color("Ошибка: x не может быть кратным π (sin(x) = 0)", COLOR_FAIL))
+            continue
+            
+        cot_x = math.cos(x) / math.sin(x)
+        if cot_x <= 0:
+            print(get_text_color("Ошибка: cot(x) должен быть положительным для логарифма", COLOR_FAIL))
+            continue
+            
+        # Check denominator inside square root
+        denominator = (math.log10(cot_x))**2 - (3*x)**(1/4)/math.cos(x)
+        if denominator <= 0:
+            print(get_text_color("Ошибка: выражение под корнем должно быть положительным", COLOR_FAIL))
+            continue
+            
+        # Check other conditions
+        if 2*x == 0:
+            print(get_text_color("Ошибка: деление на ноль в выражении 1/(2x)", COLOR_FAIL))
+            continue
+            
+        result = _ex2(x)
+        print(f"\nРезультат вычисления функции: {get_text_color(result, COLOR_GREEN)}")
+        break
+
+def _ex2(x: float) -> float:
+    cot_x = math.cos(x) / math.sin(x)
+    lg_cot_x = math.log10(cot_x)
+    numerator = 1.0
+    denominator = lg_cot_x**2 - (3*x)**(1/4)/math.cos(x)
+    sqrt_part = math.sqrt(numerator / denominator + math.sqrt(1/(2*x) + 1))
+    exp_part = math.exp(-3*x) + math.exp(math.atan(x))
+    return sqrt_part * exp_part
+
+def _init_ex_4():
+    print('Вычисление суммы n слагаемых вида: sin x + cos sin x + sin cos sin x + ...')
+    n = int(input_number(text="Введите натуральное число n: ", min=1))
+    x = input_number(text="Введите вещественное число x: ", min=MIN_VALUE, max=MAX_VALUE)
+    
+    result = _ex4(n, x)
+    print(f"\nРезультат вычисления суммы: {get_text_color(result, COLOR_GREEN)}")
+
+def _ex4(n: int, x: float) -> float:
+    total = 0.0
+    current_term = x
+    
+    for i in range(n):
+        if i % 2 == 0:
+            # Odd positions (1-based): sin
+            current_term = math.sin(current_term)
+        else:
+            # Even positions (1-based): cos
+            current_term = math.cos(current_term)
+        total += current_term
+    
+    return total
+
 def main():
     while True:
         print(
@@ -251,16 +316,16 @@ def main():
             "Индивидуальное задание №1. Базовый синтаксис Python. Вариант 13.\n"
             "Какую задачу выполнить: \n"
             f'''{get_text_color(f'{_EX_1}) ', COLOR_WARNING)}необходимо найти значение функции в зависимости от введенных параметров.\n'''
-            # f'''{get_text_color(f'{_EX_2}) ', COLOR_WARNING)}необходимо найти значение функции в зависимости от
-            # введенных параметров. Необходимо проверить, принадлежит ли введенный
-            # аргумент области определения функции, вывести сообщение, если не
-            # принадлежит, а также предложить повторный ввод параметров. Используйте
-            # модуль math или cmath.\n'''
+            f'''{get_text_color(f'{_EX_2}) ', COLOR_WARNING)}необходимо найти значение функции в зависимости от
+            введенных параметров. Необходимо проверить, принадлежит ли введенный
+            аргумент области определения функции, вывести сообщение, если не
+            принадлежит, а также предложить повторный ввод параметров. Используйте
+            модуль math.\n'''
             f'''{get_text_color(f'{_EX_3}) ', COLOR_WARNING)}Дано натуральное трехзначное число. Если все цифры в нем 
             различны, оставить заданное число без изменения; если все цифры одинаковы, первую уменьшить на 1, а 
             последнюю, если это не 9, уве личить на 1; если две цифры в числеодинаковы, получить число с обратным 
             порядком цифр.\n'''
-            # f"{get_text_color(f'{_EX_4}) ', COLOR_WARNING)}Вычислить значение s\n"
+            f'''{get_text_color(f'{_EX_4}) ', COLOR_WARNING)}Вычислить значение суммы n слагаемых sin x + cos sin x + sin cos sin x + ...\n'''
             f'''{get_text_color(f'{_EX_5}) ', COLOR_WARNING)}Дано натуральное число N. Выяснить, является ли оно степенью числа 5\n'''
             f'''{get_text_color(f'{_EX_6}) ', COLOR_WARNING)}Составить суточное расписание автобусного маршрута\n'''
             f'''{get_text_color(f'{_EX_7}) ', COLOR_WARNING)}Вычислить сумму ряда (1)\n'''
