@@ -54,9 +54,9 @@ def input_number(text: str, default_value: float = None, min: float = None, max:
 
 
 def _init_ex_1():
-    print('           |∜(t - s), если t >= s, 2 < s <= 4,')
-    print('f(t, s) = < s^4 + 2t, если t < 0,')
-    print('           |t + 2 в остальных случаях\n')
+    print('           | ∜(t - s),    если t >= s, 2 < s <= 4,')
+    print('f(t, s) = <  s^4 + 2t,    если t < 0,')
+    print('           | t + 2        в остальных случаях\n')
     t = input_number(text="Введите значение \"t\": ", min=MIN_VALUE, max=MAX_VALUE)
     s = input_number(text="Введите значение \"s\": ", min=MIN_VALUE, max=MAX_VALUE)
     print(f"\n Результат выполнения функции: {get_text_color(_ex1(t=t, s=s), COLOR_GREEN)}")
