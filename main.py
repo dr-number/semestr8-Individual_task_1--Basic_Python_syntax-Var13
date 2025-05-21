@@ -127,8 +127,8 @@ def _init_ex_8():
     epsilon = 1e-5
     result, terms = _ex8(x, epsilon)
     check = math.atan(x)
-    print(f"\nРезультат вычисления ряда: {get_text_color(result, COLOR_GREEN)}")
-    print(f"Проверочное значение (arctg x): {get_text_color(check, COLOR_OKCYAN)}")
+    print(f"\nРезультат вычисления ряда:       {get_text_color(result, COLOR_GREEN)}")
+    print(f"Проверочное значение (arctg x):  {get_text_color(check, COLOR_OKCYAN)}")
     print(f"Количество учтенных членов ряда: {terms}")
     print(f"Разница между результатом и проверочным значением: {abs(result - check)}")
 
