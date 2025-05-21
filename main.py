@@ -119,6 +119,10 @@ def _ex7(x: float, epsilon: float) -> tuple:
     return sum_total, n
 
 def _init_ex_8():
+    print('Вычислить значение суммы бесконечного ряда с заданной точностью')
+    print(get_text_color('E = 10^(-5) f(x) = x - (x^3)/3 + (x^5)/5 - ... + (((-1)^n) * x^(2n+1)/(2n + 1)) + ...', COLOR_WARNING))
+    print(f'и значение функции (для проверки) {get_text_color("f = arctg(x)", COLOR_WARNING)},')
+    print(f'учесть, что {get_text_color("x^2 < 1", COLOR_WARNING)}.\n')
     x = input_number(text="Введите x (|x| < 1): ", min=-1+1e-9, max=1-1e-9)
     epsilon = 1e-5
     result, terms = _ex8(x, epsilon)
