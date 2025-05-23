@@ -140,21 +140,33 @@ def _init_ex_4():
     n = input_integer(text="Введите натуральное число n: ", min=1)
     x = input_number(text="Введите вещественное число x: ", min=MIN_VALUE, max=MAX_VALUE)
     
-    result = _ex4(n, x)
-    print(f"\nРезультат вычисления суммы: {get_text_color(result, COLOR_GREEN)}")
+    print("\nХод вычислений:")
+    result, steps = _ex4(n, x)
+    
+    print("\nВсе шаги вычислений:")
+    for i, step in enumerate(steps, 1):
+        print(f"Шаг {i}: {step}")
+    
+    print(f"\nИтоговый результат вычисления суммы: {get_text_color(result, COLOR_GREEN)}")
 
-def _ex4(n: int, x: float) -> float:
+def _ex4(n: int, x: float) -> tuple:
     total = 0.0
     current = x
+    steps = []
     
     for i in range(1, n+1):
+        operation = "sin" if i % 2 == 1 else "cos"
+        prev_value = current
+        
         if i % 2 == 1:
             current = math.sin(current)
         else:
             current = math.cos(current)
+        
         total += current
+        steps.append(f"{operation}({prev_value:.4f}) = {current:.4f} | Текущая сумма: {total:.4f}")
     
-    return total
+    return total, steps
 
 def _init_ex_5():
     value = input_integer(text="Введите натуральное число N: ", min=1)
