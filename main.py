@@ -80,7 +80,7 @@ def _ex1(t: float, s: float) -> float:
 
 def _init_ex_2():
     print('Вычисление значения функции S')
-    print(get_text_color('S = sqrt(1/((lg(cot(x)))^2 - (3x)^(1/4)/cos(x) + sqrt(1/(2x) + 1)) * e^(-3x) + e^(arctg(x))', COLOR_WARNING))
+    print(get_text_color('S = √(1/((lg(cot(x)))^2 - (3x)^(1/4)/cos(x) + sqrt(1/(2x) + 1)) * e^(-3x) + e^(arctg(x))', COLOR_WARNING))
     print('Необходимо проверить принадлежность x области определения функции\n')
     
     while True:
@@ -136,6 +136,7 @@ def _ex3(value: int) -> int:
         return int(digits[::-1])
 
 def _init_ex_4():
+    print(f"Даны натуральное число n и вещественное x. Вычислить сумму n слагаемых {get_text_color('sin(x) + cos sin(x) + sin cos sin(x) + ...', COLOR_WARNING)}")
     n = input_integer(text="Введите натуральное число n: ", min=1)
     x = input_number(text="Введите вещественное число x: ", min=MIN_VALUE, max=MAX_VALUE)
     
