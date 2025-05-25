@@ -122,7 +122,7 @@ def _ex2(x: float) -> float:
     
     try:
         lg_cot_x = math.log10(cot_x)
-        numerator_part1 = lg_cot_x**2 - (3*x)**(1/4)/math.cos(x)
+        numerator_part1 = abs(lg_cot_x**2 - (((3*x)**(1/4))/math.cos(x)))
         numerator_part2 = math.sqrt(sqrt_inner)
         
         denominator = math.exp(-3*x) + math.exp(math.atan(x))
