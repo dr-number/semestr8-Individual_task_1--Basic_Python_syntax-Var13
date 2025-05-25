@@ -194,4 +194,8 @@
     pip install -r requirements.txt
 
 # start 
+## In macOS or Linux:
     ./venv/bin/python "main.py"
+
+## In Windows:
+   .\myenv\Scripts\python main.py
