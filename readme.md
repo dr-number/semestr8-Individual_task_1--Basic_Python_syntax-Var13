@@ -198,4 +198,4 @@
     ./venv/bin/python "main.py"
 
 ## In Windows:
-   .\myenv\Scripts\python main.py
+    .\myenv\Scripts\python main.py
