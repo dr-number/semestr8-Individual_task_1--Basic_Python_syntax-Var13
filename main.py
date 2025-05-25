@@ -115,15 +115,15 @@ def _ex2(x: float) -> float:
     if x == 0:
         raise ValueError("x не может быть нулём (деление на ноль в 1/(2x))")
     
-    sqrt_inner = 1/(2*x) + 1
+    sqrt_inner = 1/(2*x)
     if sqrt_inner < 0:
-        raise ValueError("выражение 1/(2x) + 1 должно быть неотрицательным")
+        raise ValueError("выражение 1/(2x) должно быть неотрицательным")
     
     
     try:
         lg_cot_x = math.log10(cot_x)
         numerator_part1 = abs(lg_cot_x**2 - (((3*x)**(1/4))/math.cos(x)))
-        numerator_part2 = math.sqrt(sqrt_inner)
+        numerator_part2 = math.sqrt(sqrt_inner) + 1
         
         denominator = math.exp(-3*x) + math.exp(math.atan(x))
         if denominator == 0:
