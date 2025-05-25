@@ -66,7 +66,31 @@
    </p>
 </figure>
 
-
+3. Дано натуральное трехзначное число. Если все цифры в нем различны, 
+оставить заданное число без изменения; если все цифры одинаковы, первую 
+уменьшить на 1, а последнюю, если это не 9, увеличить на 1; если две 
+цифры в числе одинаковы, получить число с обратным порядком цифр.
+<figure>
+   <p align="center">
+      <img src="https://github.com/dr-number/semestr8-Individual_task_1--Basic_Python_syntax-Var13/blob/main/for_read_me/13-3-1.png">
+   </p>
+</figure>
+<figure>
+   <p align="center">
+      <img src="https://github.com/dr-number/semestr8-Individual_task_1--Basic_Python_syntax-Var13/blob/main/for_read_me/13-3-2.png">
+   </p>
+</figure>
+<figure>
+   <p align="center">
+      <img src="https://github.com/dr-number/semestr8-Individual_task_1--Basic_Python_syntax-Var13/blob/main/for_read_me/13-3-3.png">
+   </p>
+</figure>
+<figure>
+   <p align="center">Проверка на ошибки ввода</p>
+   <p align="center">
+      <img src="https://github.com/dr-number/semestr8-Individual_task_1--Basic_Python_syntax-Var13/blob/main/for_read_me/13-3-errors.png">
+   </p>
+</figure>
 
 # Create venv:
     python3 -m venv venv
