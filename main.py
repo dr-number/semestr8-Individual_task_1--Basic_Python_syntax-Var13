@@ -133,7 +133,7 @@ def _ex2(x: float) -> float:
         if main_sqrt_expression < 0:
             raise ValueError("выражение под главным корнем должно быть неотрицательным")
         
-        return math.sqrt(main_sqrt_expression / denominator)
+        return math.sqrt(main_sqrt_expression) / denominator
     
     except ValueError as e:
         raise ValueError(f"Ошибка при вычислении: {e}")
