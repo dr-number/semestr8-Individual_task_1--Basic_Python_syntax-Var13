@@ -157,6 +157,18 @@
    </p>
 </figure>
 
+9. 
+<figure>
+   <p align="center">
+      <img src="https://github.com/dr-number/semestr8-Individual_task_1--Basic_Python_syntax-Var13/blob/main/for_read_me/ex_13-9.png">
+   </p>
+</figure>
+<figure>
+   <p align="center">
+      <img src="https://github.com/dr-number/semestr8-Individual_task_1--Basic_Python_syntax-Var13/blob/main/for_read_me/13-9-1.png">
+   </p>
+</figure>
+
 # Create venv:
     python3 -m venv venv
 
