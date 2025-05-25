@@ -183,12 +183,13 @@ def _ex4(n: int, x: float) -> tuple:
     steps = []
     
     for i in range(1, n+1):
-        operation = "sin" if i % 2 == 1 else "cos"
         prev_value = current
         
         if i % 2 == 1:
+            operation = "sin"
             current = math.sin(current)
         else:
+            operation = "cos"
             current = math.cos(current)
         
         total += current
