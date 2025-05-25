@@ -277,10 +277,11 @@ def _init_ex_7():
     x = input_number(text="Введите x (0.1 ≤ x ≤ 1): ", min=0.1, max=1)
     epsilon = 1e-6
     result, terms = _ex7(x, epsilon)
-    check = math.cosh(x)
+    check = math.cosh(x) 
+    # check = (math.exp(x) + math.exp(-x)) / 2
     
-    print(f"\nРезультат вычисления ряда: {get_text_color(result, COLOR_GREEN)}")
-    print(f"Проверочное значение (ch x): {get_text_color(check, COLOR_OKCYAN)}")
+    print(f"\nРезультат вычисления ряда:     {get_text_color(result, COLOR_GREEN)}")
+    print(f"Проверочное значение (ch x):   {get_text_color(check, COLOR_OKCYAN)}")
     print(f"Количество учтенных членов ряда: {terms}")
     print(f"Разница: {abs(result - check)}")
 
@@ -290,7 +291,7 @@ def _ex7(x: float, epsilon: float) -> tuple:
     n = 1
     
     while True:
-        term *= x * x / ((2 * n - 1) * (2 * n))
+        term = math.pow(x, 2*n) / math.factorial(2 * n)
         if abs(term) < epsilon:
             break
         sum_total += term
