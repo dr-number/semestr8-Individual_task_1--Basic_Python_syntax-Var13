@@ -118,13 +118,18 @@ def _ex2(x: float) -> float:
     return sqrt_part * exp_part
 
 def _init_ex_3():
+    print(
+        'Дано натуральное трехзначное число. Если все цифры в нем различны, \n'
+        'оставить заданное число без изменения; если все цифры одинаковы, первую \n'
+        'уменьшить на 1, а последнюю, если это не 9, увеличить на 1; если две \n'
+        'цифры в числе одинаковы, получить число с обратным порядком цифр.'
+    )
     value = input_integer(text="Введите натуральное трехзначное число: ", min=100, max=999)
     result = _ex3(value)
     print(f"\nРезультат выполнения функции: {get_text_color(result, COLOR_GREEN)}")
 
 def _ex3(value: int) -> int:
     digits = str(value)
-    
     if len(set(digits)) == 3:
         print(get_text_color("Все цифры уникальны", COLOR_WARNING))
         return value
@@ -171,6 +176,7 @@ def _ex4(n: int, x: float) -> tuple:
     return total, steps
 
 def _init_ex_5():
+    print('Проверка, является ли число степенью 5\n')
     value = input_integer(text="Введите натуральное число N: ", min=1)
     result = _ex5(value)
     
