@@ -311,23 +311,25 @@ def _init_ex_8():
     result, terms = _ex8(x, epsilon)
     check = math.atan(x)
     
-    print(f"\nРезультат вычисления ряда: {get_text_color(result, COLOR_GREEN)}")
+    print(f"\nРезультат вычисления ряда:      {get_text_color(result, COLOR_GREEN)}")
     print(f"Проверочное значение (arctg x): {get_text_color(check, COLOR_OKCYAN)}")
     print(f"Количество учтенных членов ряда: {terms}")
     print(f"Разница: {abs(result - check)}")
 
 def _ex8(x: float, epsilon: float) -> tuple:
-    sum_total = x
-    term = x
-    n = 1
+    if abs(x) >= 1:
+        raise ValueError("Ряд сходится только при |x| < 1")
+    
+    sum_total = 0.0
+    n = 0
     
     while True:
-        term *= -x * x
-        new_term = term / (2 * n + 1)
-        if abs(new_term) < epsilon:
-            break
-        sum_total += new_term
+        term = (-1)**n * x**(2*n + 1) / (2*n + 1)
+        sum_total += term
         n += 1
+        
+        if abs(term) < epsilon:
+            break
     
     return sum_total, n
 
