@@ -33,6 +33,41 @@
    </p>
 </figure>
 
+2. Необходимо найти значение функции в зависимости от
+введенных параметров. Необходимо проверить, принадлежит ли введенный
+аргумент области определения функции, вывести сообщение, если не
+принадлежит, а также предложить повторный ввод параметров. Используйте
+модуль math или cmath
+<figure>
+   <p align="center">
+      <img src="https://github.com/dr-number/semestr8-Individual_task_1--Basic_Python_syntax-Var13/blob/main/for_read_me/ex_13-2.png">
+   </p>
+</figure>
+
+<figure>
+   <p align="center">
+      <img src="https://github.com/dr-number/semestr8-Individual_task_1--Basic_Python_syntax-Var13/blob/main/for_read_me/13-2-1.png">
+   </p>
+</figure>
+<figure>
+   <p align="center">
+      <img src="https://github.com/dr-number/semestr8-Individual_task_1--Basic_Python_syntax-Var13/blob/main/for_read_me/13-2-2.png">
+   </p>
+</figure>
+<figure>
+   <p align="center">
+      <img src="https://github.com/dr-number/semestr8-Individual_task_1--Basic_Python_syntax-Var13/blob/main/for_read_me/13-2-3.png">
+   </p>
+</figure>
+<figure>
+   <p align="center">Проверка на ошибки ввода</p>
+   <p align="center">
+      <img src="https://github.com/dr-number/semestr8-Individual_task_1--Basic_Python_syntax-Var13/blob/main/for_read_me/13-2-errors.png">
+   </p>
+</figure>
+
+
+
 # Create venv:
     python3 -m venv venv
 
