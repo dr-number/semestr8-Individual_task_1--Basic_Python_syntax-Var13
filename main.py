@@ -21,8 +21,6 @@ _EX_7 = '7'
 _EX_8 = '8'
 _EX_9 = '9'
 
-_ARRAY_EX = [_EX_1, _EX_2, _EX_3, _EX_4, _EX_5, _EX_6, _EX_7, _EX_8, _EX_9]
-
 def get_text_color(text: str, color: str) -> str:
     return f'{color}{text}{_COLOR_ENDC}'
 
@@ -57,9 +55,11 @@ def input_integer(text: str, min: int = None, max: int = None) -> int:
         print(get_text_color("Пожалуйста, введите целое число!", COLOR_FAIL))
 
 def _init_ex_1():
-    print('           | ∜(t - s),    если t >= s, 2 < s <= 4,')
-    print('f(t, s) = <  s^4 + 2t,    если t < 0,')
-    print('           | t + 2        в остальных случаях\n')
+    print(
+        '           | ∜(t - s),    если t >= s, 2 < s <= 4,\n'
+        'f(t, s) = <  s^4 + 2t,    если t < 0,\n'
+        '           | t + 2        в остальных случаях\n'
+    )
     
     t = input_number(text="Введите значение \"t\": ", min=MIN_VALUE, max=MAX_VALUE)
     s = input_number(text="Введите значение \"s\": ", min=MIN_VALUE, max=MAX_VALUE)
@@ -79,9 +79,11 @@ def _ex1(t: float, s: float) -> float:
         return t + 2
 
 def _init_ex_2():
-    print('Вычисление значения функции S')
-    print(get_text_color('S = √(1/((lg(cot(x)))^2 - (3x)^(1/4)/cos(x) + sqrt(1/(2x) + 1)) * e^(-3x) + e^(arctg(x))', COLOR_WARNING))
-    print('Необходимо проверить принадлежность x области определения функции\n')
+    print(
+        "Вычисление значения функции S\n"
+        f"{get_text_color('S = √(1/((lg(cot(x)))^2 - (3x)^(1/4)/cos(x) + sqrt(1/(2x) + 1)) * e^(-3x) + e^(arctg(x))', COLOR_WARNING)}\n"
+        "Необходимо проверить принадлежность x области определения функции\n"
+    )
     
     while True:
         x = input_number(text="Введите x (в радианах, x > 0, x ≠ πn): ", min=0.0001)
@@ -342,11 +344,10 @@ def main():
         
         if select == '0':
             break
-        elif select in _ARRAY_EX:
-            globals()[f'_init_ex_{select}']()
-            input("\nНажмите Enter для продолжения...")
         else:
-            print(get_text_color("Некорректный ввод. Пожалуйста, введите число от 1 до 9 или 0 для выхода.", COLOR_FAIL))
+            globals()[f'_init_ex_{select}']()
+        
+        input("\nНажмите Enter для продолжения...")
 
 if __name__ == '__main__':
     main()
