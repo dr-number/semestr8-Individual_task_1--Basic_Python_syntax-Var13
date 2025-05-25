@@ -100,6 +100,26 @@
    </p>
 </figure>
 
+5. Дано натуральное число N. Выяснить, является ли оно степенью числа 5
+<figure>
+   <p align="center">Число N является степенью числа 5</p>
+   <p align="center">
+      <img src="https://github.com/dr-number/semestr8-Individual_task_1--Basic_Python_syntax-Var13/blob/main/for_read_me/13-5-yes.png">
+   </p>
+</figure>
+<figure>
+   <p align="center">Число N НЕ является степенью числа 5</p>
+   <p align="center">
+      <img src="https://github.com/dr-number/semestr8-Individual_task_1--Basic_Python_syntax-Var13/blob/main/for_read_me/13-5-no.png">
+   </p>
+</figure>
+<figure>
+   <p align="center">Проверка на ошибки ввода</p>
+   <p align="center">
+      <img src="https://github.com/dr-number/semestr8-Individual_task_1--Basic_Python_syntax-Var13/blob/main/for_read_me/13-5-errors.png">
+   </p>
+</figure>
+
 # Create venv:
     python3 -m venv venv
 
