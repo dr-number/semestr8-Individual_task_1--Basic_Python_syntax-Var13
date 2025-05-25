@@ -81,8 +81,13 @@ def _ex1(t: float, s: float) -> float:
 def _init_ex_2():
     print(
         "Вычисление значения функции S\n"
-        f"{get_text_color('S = √(1/((lg(cot(x)))^2 - (3x)^(1/4)/cos(x) + sqrt(1/(2x) + 1)) * e^(-3x) + e^(arctg(x))', COLOR_WARNING)}\n"
-        "Необходимо проверить принадлежность x области определения функции\n"
+        f"{get_text_color('S = √((log(cot(x))² - ∜(3x)/cos(x) + √(1/(2x) + 1) / (e⁻³ˣ + e^(arctg(x)))', COLOR_WARNING)}\n"
+        "Необходимо проверить принадлежность x области определения функции:\n"
+        "1. x > 0\n"
+        "2. sin(x) ≠ 0 (x ≠ πn, где n - целое)\n"
+        "3. cot(x) > 0 (для существования log(cot(x)))\n"
+        "4. Знаменатель не должен быть нулевым\n"
+        "5. Выражение под корнем должно быть положительным\n"
     )
     
     while True:
@@ -97,6 +102,9 @@ def _init_ex_2():
             print(get_text_color("Пожалуйста, введите другое значение x", COLOR_WARNING))
 
 def _ex2(x: float) -> float:
+    if x <= 0:
+        raise ValueError("x должен быть положительным")
+    
     if math.sin(x) == 0:
         raise ValueError("x не может быть кратным π (sin(x) = 0)")
     
@@ -104,18 +112,31 @@ def _ex2(x: float) -> float:
     if cot_x <= 0:
         raise ValueError("cot(x) должен быть положительным для логарифма")
     
-    lg_cot_x = math.log10(cot_x)
-    denominator = lg_cot_x**2 - (3*x)**(1/4)/math.cos(x)
+    if x == 0:
+        raise ValueError("x не может быть нулём (деление на ноль в 1/(2x))")
     
-    if denominator <= 0:
-        raise ValueError("выражение под корнем должно быть положительным")
+    sqrt_inner = 1/(2*x) + 1
+    if sqrt_inner < 0:
+        raise ValueError("выражение 1/(2x) + 1 должно быть неотрицательным")
     
-    if 2*x == 0:
-        raise ValueError("деление на ноль в выражении 1/(2x)")
     
-    sqrt_part = math.sqrt(1 / denominator + math.sqrt(1/(2*x) + 1))
-    exp_part = math.exp(-3*x) + math.exp(math.atan(x))
-    return sqrt_part * exp_part
+    try:
+        lg_cot_x = math.log10(cot_x)
+        numerator_part1 = lg_cot_x**2 - (3*x)**(1/4)/math.cos(x)
+        numerator_part2 = math.sqrt(sqrt_inner)
+        
+        denominator = math.exp(-3*x) + math.exp(math.atan(x))
+        if denominator == 0:
+            raise ValueError("знаменатель не может быть нулевым")
+        
+        main_sqrt_expression = numerator_part1 + numerator_part2
+        if main_sqrt_expression < 0:
+            raise ValueError("выражение под главным корнем должно быть неотрицательным")
+        
+        return math.sqrt(main_sqrt_expression / denominator)
+    
+    except ValueError as e:
+        raise ValueError(f"Ошибка при вычислении: {e}")
 
 def _init_ex_3():
     print(
