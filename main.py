@@ -337,7 +337,7 @@ def _init_ex_9():
     
     print("\nРезультаты:")
     for x, n in results.items():
-        print(f"Для x = {x}: минимальное n, при котором x^n > {k} = {get_text_color(n, COLOR_GREEN)}")
+        print(f"Для x = {x}: минимальное n, при котором x^n > {k} = {x}^{get_text_color(n, COLOR_GREEN)} = {get_text_color(math.pow(x, n), COLOR_GREEN)}")
 
 def _ex9(k: float) -> dict:
     results = {}
